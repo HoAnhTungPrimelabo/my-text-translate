@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Dialog - Modal form</title>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+          background-color: rgba(0, 0, 0, 0.4);
+      }
+
+    </style>
+</head>
+  <body>
+  <div id="users-contain" class="main">
+    <div id="users-contain1" data-tauri-drag-region >
+      <span id="text-vn" class="text"></span>
+    </div>
+    <div id="users-contain2" class="notranslate">
+      <span id="text-en" class="text"></span>
+    </div>
+  </div>
+  <button id="setting-btn" class="notranslate" style="font-size: 20px;" >&#9881;</button>
+  <div id="dialog-form" class="notranslate">
+    <form>
+        <label>Font size: <input id="number-size" type="number" min="0" max="50"></label> <br/>
+        <label>Opacity: <input id="range-opacity" type="range" step="0.1" min="0" max="1"></label> <br/>
+        <label>Always on top: <input type="checkbox" id="always-on-top" value="1"></label> <br/>
+        <label>Mode: <select id="select-mode">
+                <option value="min">min</option>
+                <option value="saab">medium</option>
+                <option value="max">max</option>
+            </select>
+        </label> <br/>
+        <div id="google_translate_element"></div>
+        <button type="button" id="btn-save" >Save</button>
+        <button type="button" id="btn-cancel" >Cancel</button>
+    </form>
+  </div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en', // Ngôn ngữ gốc
+            autoDisplay: false // Không hiển thị dropdown
+        }, 'google_translate_element');
+    }
+
+    function translateToVietnamese() {
+        var selectField = document.querySelector(".goog-te-combo");
+        if (selectField) {
+            selectField.value = "vi"; // Chọn Tiếng Việt
+            selectField.dispatchEvent(new Event("change")); // Kích hoạt sự kiện thay đổi ngôn ngữ
+        }
+    }
+</script>
+  <script type="text/javascript" src="translate_a_element.js"></script>
+  <script type="text/javascript" src="jquery-3.7.1.js"></script>
+  <script type="text/javascript" src="jquery-ui.js"></script>
+  <script type="module" src="/my.js" defer></script>
+  <script>
+      setTimeout(translateToVietnamese, 500);
+  </script>
+  </body>
+  </html>
